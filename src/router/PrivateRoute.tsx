@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../auth';
 
 interface Props {
@@ -7,7 +7,14 @@ interface Props {
 }
 
 const PrivateRoute = ({ children }: Props) => {
+    const { pathname, search } = useLocation();
     const { authState: { logged } } = useContext(AuthContext);
+
+    useEffect(() => {
+        const lastPath = `${pathname}${search}`;
+        localStorage.setItem('lastPath', lastPath);
+    }, [pathname, search]);
+
 
     return (logged)
         ? children

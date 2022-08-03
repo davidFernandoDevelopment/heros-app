@@ -59,7 +59,7 @@ export const SearchPage = () => {
           </div>
           {
             heros.map(hero => (
-              <HeroCard {...hero} />
+              <HeroCard key={hero.id} {...hero} />
             ))
           }
         </div>

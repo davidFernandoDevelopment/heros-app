@@ -1,13 +1,15 @@
 import { HeroList } from '../components';
 
-export const MarvelPage = () => {
+export const DCPage = () => {
+
+
   return (
     <>
       <h1>DC Comics</h1>
       <hr />
-      <HeroList publisher='Marvel Comics' />
+      <HeroList publisher='DC Comics' />
     </>
   );
 };
 
-export default MarvelPage;
+export default DCPage;
